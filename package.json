@@ -1,0 +1,13 @@
+{
+  "name": "mortgage-repayment-calculator-fm",
+  "version": "1.0.0",
+  "description": "A mortgage repayment calculator, just to get back into the swing of programming",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
