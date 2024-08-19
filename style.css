@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-family: "Moderustic", sans-serif;
+    --backdrop: hsl(210, 35%, 81%);
+    --form-background: hsl(0, 0%, 94%);
+    --result-background: hsl(197, 100%, 14%);
+    --main-width-desktop: clamp(38rem, 90vw, 50rem);
+    --main-width-mobile: clamp(15rem, 70vw, 23rem);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--backdrop);
+}
+
+section.main-section {
+    display: flex;
+    flex-direction: row;
+    width: var(--main-width-desktop);
+    height: 60vh;
+    margin: 2rem;
+    border: 3px black dashed;
+}
+
+article.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    padding: 1.5rem;
+    background-color: var(--form-background);
+}
+
+article.result {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    padding: 1.5rem;
+    color: white;
+    background-color: var(--result-background);
+}
+
+@media (max-width: 600px) {
+    section.main-section {
+        flex-direction: column;
+        height: 90vh;
+        width: var(--main-width-mobile);
+    }
+    article.form,
+    article.result {
+        width: 100%;
+    }
+}
+
+div.form-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: fit-content;
+}
+
+h1.form-title {
+    font-weight: normal;
+    display: inline;
+}
+
+div.mortgage-amount,
+div.mortgage-term,
+div.mortgage-rate {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem 0;
+}
+
+div.mortgage-term-rate {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+div.mortgage-term,
+div.mortgage-rate {
+    width: 45%;
+}
+
+button.form-submit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+div.result-empty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+h2.result-empty-header {
+    font-weight: normal;
+}
+
+p.result-empty-guide {
+    text-align: center;
+}

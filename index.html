@@ -5,6 +5,129 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Mortgage Calculator</title>
         <link rel="stylesheet" href="style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Moderustic:wght@300..800&display=swap"
+            rel="stylesheet"
+        />
     </head>
-    <body></body>
+    <body>
+        <section class="main-section">
+            <article class="form">
+                <div class="header form-header">
+                    <h1 class="form-title">Mortgage Calculator</h1>
+                    <button>Clear All</button>
+                </div>
+                <form action="/mortgagestats">
+                    <div class="mortgage-amount">
+                        <label class="mortgage-amount-title"
+                            >Mortgage Amount</label
+                        >
+                        <input
+                            type="text"
+                            id="mortgage-amount-input"
+                            name="mortgage-amount"
+                        />
+                    </div>
+                    <div class="mortgage-term-rate">
+                        <div class="mortgage-term">
+                            <label class="mortgage-term-title"
+                                >Mortgage Term</label
+                            >
+                            <input
+                                type="text"
+                                id="mortgage-term-input"
+                                name="mortgage-term"
+                            />
+                        </div>
+                        <div class="mortgage-rate">
+                            <label class="mortgage-rate-title"
+                                >Mortgage Rate</label
+                            >
+                            <input
+                                type="text"
+                                id="mortgage-rate-input"
+                                name="mortgage-rate"
+                            />
+                        </div>
+                    </div>
+                    <fieldset class="mortgage-type">
+                        <legend>Mortgage Type</legend>
+                        <div class="repayment-container">
+                            <input
+                                type="radio"
+                                id="repayment"
+                                name="mortgage-type"
+                                value="repayment"
+                            />
+                            <label for="repayment">Repayment</label>
+                        </div>
+                        <div class="interest-only-container">
+                            <input
+                                type="radio"
+                                id="interest-only"
+                                name="mortgage-type"
+                                value="interest-only"
+                            />
+                            <label for="interest-only">Interest Only</label>
+                        </div>
+                    </fieldset>
+                    <button type="submit" class="form-submit">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            class="calculator-svg"
+                        >
+                            <path
+                                fill="#133041"
+                                d="M18.75 2.25H5.25a1.5 1.5 0 0 0-1.5 1.5v16.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5V3.75a1.5 1.5 0 0 0-1.5-1.5Zm-10.5 16.5a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25Zm0-3.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25ZM12 18.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25ZM12 15a1.125 1.125 0 1 1 0-2.25A1.125 1.125 0 0 1 12 15Zm3.75 3.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25Zm0-3.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25Zm1.5-5.25a.75.75 0 0 1-.75.75h-9a.75.75 0 0 1-.75-.75V6a.75.75 0 0 1 .75-.75h9a.75.75 0 0 1 .75.75v3.75Z"
+                            />
+                        </svg>
+                        <p class="submit-text">Calculate Repayment</p>
+                    </button>
+                </form>
+            </article>
+            <article class="result">
+                <div class="result-empty">
+                    <img
+                        src="assets/images/illustration-empty.svg"
+                        alt="decoration for incomplete result"
+                    />
+                    <h2 class="result-empty-header">Results Shown here</h2>
+                    <p class="result-empty-guide">
+                        Complete the form and click &ldquo;Calculate
+                        Repayments&rdquo; to see what your monthly repayments
+                        should be.
+                    </p>
+                </div>
+                <div style="display: none" class="result-complete">
+                    <h2 class="result-complete-header">Your results</h2>
+                    <p class="result-complete-explanation">
+                        Your results are shown below based on the information
+                        you have provided.To adjust the results, edit the form
+                        and click &ldquo;Calculate Repayments&rdquo; again.
+                    </p>
+                    <div class="result-complete-card">
+                        <div class="result-complete-monthly">
+                            <p class="accent-text result-monthly-repayments">
+                                Your monthly repayments
+                            </p>
+                            <p class="result-monthly-figure">£15,000</p>
+                        </div>
+                        <hr class="result-complete-horizontal-rule" />
+                        <div class="result-complete-total">
+                            <p class="accent-text result-totla-repayment">
+                                Total you&apos;ll repay over the term
+                            </p>
+                            <p class="result-total-figure">£4,000,000,000</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </body>
 </html>
