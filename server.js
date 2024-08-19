@@ -1,5 +1,4 @@
 import express from "express";
-import { readFile } from "fs";
 
 const app = express();
 const port = 8080;
