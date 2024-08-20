@@ -19,7 +19,7 @@
                     <h1 class="form-title">Mortgage Calculator</h1>
                     <button>Clear All</button>
                 </div>
-                <form method="post" action="/mortgagestats">
+                <form id="mortgage-form" method="post" action="/mortgagestats">
                     <div class="mortgage-amount">
                         <label
                             for="mortgage-amount-input"
@@ -73,6 +73,7 @@
                                 id="repayment"
                                 name="mortgageType"
                                 value="repayment"
+                                checked
                             />
                             <label for="repayment">Repayment</label>
                         </div>
@@ -143,5 +144,6 @@
                 </div>
             </article>
         </section>
+        <script src="./form.js"></script>
     </body>
 </html>
