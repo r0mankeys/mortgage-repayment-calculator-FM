@@ -21,34 +21,46 @@
                 </div>
                 <form action="/mortgagestats">
                     <div class="mortgage-amount">
-                        <label class="mortgage-amount-title"
+                        <label
+                            for="mortgage-amount-input"
+                            class="mortgage-amount-title"
                             >Mortgage Amount</label
                         >
                         <input
-                            type="text"
+                            type="number"
+                            min="0"
                             id="mortgage-amount-input"
                             name="mortgage-amount"
+                            required
                         />
                     </div>
                     <div class="mortgage-term-rate">
                         <div class="mortgage-term">
-                            <label class="mortgage-term-title"
+                            <label
+                                for="mortgage-term-input"
+                                class="mortgage-term-title"
                                 >Mortgage Term</label
                             >
                             <input
-                                type="text"
+                                type="number"
+                                min="1"
                                 id="mortgage-term-input"
                                 name="mortgage-term"
+                                required
                             />
                         </div>
                         <div class="mortgage-rate">
-                            <label class="mortgage-rate-title"
+                            <label
+                                for="mortgage-rate-input"
+                                class="mortgage-rate-title"
                                 >Mortgage Rate</label
                             >
                             <input
-                                type="text"
+                                type="number"
+                                min="0"
                                 id="mortgage-rate-input"
                                 name="mortgage-rate"
+                                required
                             />
                         </div>
                     </div>
@@ -75,6 +87,7 @@
                     </fieldset>
                     <button type="submit" class="form-submit">
                         <svg
+                            aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
                             height="24"
