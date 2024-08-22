@@ -1,5 +1,7 @@
 # Mortgage repayment calculator
 
+[![My Skills](https://skillicons.dev/icons?i=js,html,css,express)](https://skillicons.dev)
+
 This is a mortgage repayment calculator, "inspired" by [Frontend Mentor](https://www.frontendmentor.io/home).
 
 I say inspired because I am using the challenge to "get back into development/programming", haven't done it in a while
