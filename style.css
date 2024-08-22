@@ -7,14 +7,18 @@
     font-family: "Plus Jakarta Sans", sans-serif;
     --backdrop: hsl(210, 35%, 81%);
     --form-background: hsl(0, 0%, 94%);
-    --result-background: hsl(197, 100%, 14%);
-    --main-width-desktop: clamp(38rem, 90vw, 50rem);
+    --result-background: hsl(197, 100%, 13.1%);
+    --main-width-desktop: clamp(38rem, 90vw, 65rem);
     --main-width-mobile: clamp(15rem, 70vw, 23rem);
     --small-font: 0.875rem;
     --main-text-color: hsl(211, 12%, 48%);
+    --accent-text-color: hsl(211, 12%, 63%);
     --title-inline: 0.1rem;
     --main-green: hsl(61, 70%, 52%);
     --main-green-hover: hsla(61, 70%, 45%, 0.3);
+    --main-border-rad: 3rem;
+    --hr-sep-color: hsl(210, 2.9%, 27.1%);
+    --result-card-bg: hsl(197.6, 80.4%, 10%);
 }
 
 /* Chrome, Safari, Edge */
@@ -40,42 +44,51 @@ body {
 section.main-section {
     display: flex;
     flex-direction: row;
+    align-items: stretch;
     width: var(--main-width-desktop);
-    height: 60vh;
     margin: 2rem;
-    border: 3px black dashed;
+    background-color: var(--form-background);
+    border-radius: var(--main-border-rad);
 }
 
 article.form {
     display: flex;
     flex-direction: column;
     width: 50%;
-    height: 100%;
-    padding: 1.5rem;
+    height: fit-content;
+    flex: 1;
+    padding: 2.5rem;
     background-color: var(--form-background);
+    border-radius: var(--main-border-rad) 0 0 var(--main-border-rad);
 }
 
 article.result {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     width: 50%;
-    height: 100%;
-    padding: 1.5rem;
+    flex: 1;
+    padding: 2.5rem;
     color: white;
     background-color: var(--result-background);
+    border-radius: 0 var(--main-border-rad) var(--main-border-rad)
+        var(--main-border-rad);
+}
+
+article.result > div.result-empty {
+    justify-content: center;
+    align-items: center;
 }
 
 @media (max-width: 600px) {
     section.main-section {
         flex-direction: column;
-        height: 90vh;
+        height: 100%;
         width: var(--main-width-mobile);
     }
     article.form,
     article.result {
         width: 100%;
+        padding: 2rem;
     }
 }
 
@@ -88,6 +101,7 @@ div.form-header {
 }
 
 h1.form-title {
+    font-size: 1.2rem;
     font-weight: 700;
 }
 
@@ -210,6 +224,12 @@ div.mortgage-term-rate {
     justify-content: space-between;
 }
 
+@media (max-width: 600px) {
+    div.mortgage-term-rate {
+        flex-direction: column;
+    }
+}
+
 label.mortgage-rate-title {
     width: fit-content;
     font-size: var(--small-font);
@@ -236,6 +256,13 @@ div.mortgage-rate {
     width: 48%;
 }
 
+@media (max-width: 600px) {
+    div.mortgage-term,
+    div.mortgage-rate {
+        width: 100%;
+    }
+}
+
 div.mortgage-rate-container {
     display: flex;
     height: 2.4rem;
@@ -256,19 +283,20 @@ fieldset.mortgage-type {
 fieldset.mortgage-type > legend {
     width: fit-content;
     font-size: var(--small-font);
-    margin-block-end: 0.5rem;
+    margin-block-end: 0.6rem;
     color: var(--main-text-color);
     margin-inline-start: var(--title-inline);
 }
 
 input[type="radio"] {
-    margin-inline-end: 0.5rem;
+    margin-inline: 0.5rem 0.8rem;
 }
 
 label.repayment-label,
 label.interest-only-label {
     width: 100%;
     display: flex;
+    font-weight: 600;
     border: 2px solid hsl(216, 12%, 74%);
     padding: 0.5rem 0 0.5rem 0.5rem;
     border-radius: 0.375rem;
@@ -284,11 +312,18 @@ button.form-submit {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-block-start: 2rem;
+    margin-block-start: 1.5rem;
     padding: 0.75rem 1.5rem;
     border: none;
     border-radius: 100vh;
     background-color: var(--main-green);
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    button.form-submit {
+        margin-inline: auto;
+    }
 }
 
 p.submit-text {
@@ -296,18 +331,82 @@ p.submit-text {
     font-weight: 600;
 }
 
+img {
+    scale: 0.8;
+    object-fit: cover;
+}
+
+h2.result-empty-header {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-block: -0.8rem 0.8rem;
+}
+
+p.result-empty-guide {
+    text-align: center;
+    font-size: var(--small-font);
+    color: var(--accent-text-color);
+}
+
 div.result-empty {
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
 }
 
-h2.result-empty-header {
-    font-weight: normal;
+div.result-complete {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
-p.result-empty-guide {
-    text-align: center;
+h2.result-complete-header {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+p.result-complete-explanation {
+    margin-block: 1rem 1.3rem;
+    font-size: var(--small-font);
+    color: var(--accent-text-color);
+}
+
+div.result-complete-card {
+    height: 17rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.775rem;
+    border-top: 2.5px solid var(--main-green);
+    background-color: var(--result-card-bg);
+    padding: 1.5rem;
+    overflow: hidden;
+}
+
+p.accent-text {
+    font-size: var(--small-font);
+    color: var(--accent-text-color);
+}
+
+p.result-monthly-figure {
+    font-size: 3.4rem;
+    font-weight: 700;
+    color: var(--main-green);
+    margin-block-start: 0.5rem;
+}
+
+hr {
+    width: 95%;
+    border: 0;
+    height: 0.4px;
+    align-self: center;
+    background-color: var(--hr-sep-color);
+    margin-block: 1.5rem;
+}
+
+p.result-total-figure {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-block: 0.5rem 0;
 }
