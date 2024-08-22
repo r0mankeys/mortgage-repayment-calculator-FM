@@ -8,7 +8,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Moderustic:wght@300..800&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
             rel="stylesheet"
         />
     </head>
@@ -26,13 +26,34 @@
                             class="mortgage-amount-title"
                             >Mortgage Amount</label
                         >
-                        <input
-                            type="number"
-                            min="0"
-                            id="mortgage-amount-input"
-                            name="mortgageAmount"
-                            required
-                        />
+                        <div class="mortgage-input-container">
+                            <span class="icon-container">
+                                <svg
+                                    class="icon"
+                                    aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="lucide lucide-pound-sterling"
+                                >
+                                    <path d="M18 7c0-5.333-8-5.333-8 0" />
+                                    <path d="M10 7v14" />
+                                    <path d="M6 21h12" />
+                                    <path d="M6 13h10" />
+                                </svg>
+                            </span>
+                            <input
+                                type="number"
+                                min="0"
+                                id="mortgage-amount-input"
+                                name="mortgageAmount"
+                                required
+                            />
+                        </div>
                     </div>
                     <div class="mortgage-term-rate">
                         <div class="mortgage-term">
@@ -41,13 +62,16 @@
                                 class="mortgage-term-title"
                                 >Mortgage Term</label
                             >
-                            <input
-                                type="number"
-                                min="1"
-                                id="mortgage-term-input"
-                                name="mortgageTerm"
-                                required
-                            />
+                            <div class="mortgage-term-container">
+                                <input
+                                    type="number"
+                                    min="1"
+                                    id="mortgage-term-input"
+                                    name="mortgageTerm"
+                                    required
+                                />
+                                <span class="term-icon-container">years</span>
+                            </div>
                         </div>
                         <div class="mortgage-rate">
                             <label
@@ -55,19 +79,40 @@
                                 class="mortgage-rate-title"
                                 >Mortgage Rate</label
                             >
-                            <input
-                                type="number"
-                                min="0"
-                                step="0.01"
-                                id="mortgage-rate-input"
-                                name="mortgageRate"
-                                required
-                            />
+                            <div class="mortgage-rate-container">
+                                <input
+                                    type="number"
+                                    min="0"
+                                    step="0.01"
+                                    id="mortgage-rate-input"
+                                    name="mortgageRate"
+                                    required
+                                />
+                                <span class="rate-icon-container">
+                                    <svg
+                                        class="rate-icon"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-percent"
+                                    >
+                                        <line x1="19" x2="5" y1="5" y2="19" />
+                                        <circle cx="6.5" cy="6.5" r="2.5" />
+                                        <circle cx="17.5" cy="17.5" r="2.5" />
+                                    </svg>
+                                </span>
+                            </div>
                         </div>
                     </div>
                     <fieldset class="mortgage-type">
                         <legend>Mortgage Type</legend>
-                        <div class="repayment-container">
+                        <label class="repayment-label" for="repayment">
                             <input
                                 type="radio"
                                 id="repayment"
@@ -75,17 +120,17 @@
                                 value="repayment"
                                 required
                             />
-                            <label for="repayment">Repayment</label>
-                        </div>
-                        <div class="interest-only-container">
+                            Repayment
+                        </label>
+                        <label class="interest-only-label" for="interest-only">
                             <input
                                 type="radio"
                                 id="interest-only"
                                 name="mortgageType"
                                 value="interest-only"
                             />
-                            <label for="interest-only">Interest Only</label>
-                        </div>
+                            Interest Only
+                        </label>
                     </fieldset>
                     <button type="submit" class="form-submit">
                         <svg
