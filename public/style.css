@@ -1,0 +1,412 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    --backdrop: hsl(210, 35%, 81%);
+    --form-background: hsl(0, 0%, 94%);
+    --result-background: hsl(197, 100%, 13.1%);
+    --main-width-desktop: clamp(38rem, 90vw, 65rem);
+    --main-width-mobile: clamp(15rem, 70vw, 23rem);
+    --small-font: 0.875rem;
+    --main-text-color: hsl(211, 12%, 48%);
+    --accent-text-color: hsl(211, 12%, 63%);
+    --title-inline: 0.1rem;
+    --main-green: hsl(61, 70%, 52%);
+    --main-green-hover: hsla(61, 70%, 45%, 0.3);
+    --main-border-rad: 3rem;
+    --hr-sep-color: hsl(210, 2.9%, 27.1%);
+    --result-card-bg: hsl(197.6, 80.4%, 10%);
+}
+
+/* Chrome, Safari, Edge */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--backdrop);
+}
+
+section.main-section {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    width: var(--main-width-desktop);
+    margin: 2rem;
+    background-color: var(--form-background);
+    border-radius: var(--main-border-rad);
+}
+
+article.form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: fit-content;
+    flex: 1;
+    padding: 2.5rem;
+    background-color: var(--form-background);
+    border-radius: var(--main-border-rad) 0 0 var(--main-border-rad);
+}
+
+article.result {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    flex: 1;
+    padding: 2.5rem;
+    color: white;
+    background-color: var(--result-background);
+    border-radius: 0 var(--main-border-rad) var(--main-border-rad)
+        var(--main-border-rad);
+}
+
+article.result > div.result-empty {
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 600px) {
+    section.main-section {
+        flex-direction: column;
+        height: 100%;
+        width: var(--main-width-mobile);
+    }
+    article.form,
+    article.result {
+        width: 100%;
+        padding: 2rem;
+    }
+}
+
+div.form-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: fit-content;
+    margin-block-end: 1.5rem;
+}
+
+h1.form-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+button#clear-form {
+    all: unset;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 0.85rem;
+}
+
+div.mortgage-amount,
+div.mortgage-term,
+div.mortgage-rate {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem 0;
+}
+
+label.mortgage-amount-title {
+    width: fit-content;
+    font-size: var(--small-font);
+    margin-block-end: 0.5rem;
+    color: var(--main-text-color);
+    margin-inline-start: var(--title-inline);
+}
+
+div.mortgage-input-container {
+    display: flex;
+    height: 2.4rem;
+    align-items: center;
+}
+
+span.icon-container {
+    height: 100%;
+    display: inline-flex;
+    padding: 0.75rem;
+    align-items: center;
+    font-size: 0.875rem;
+    border: 1px solid hsl(216, 12%, 84%);
+    border-right: none;
+    border-radius: 0.375rem 0 0 0.375rem;
+}
+
+svg.icon {
+    width: var(--small-font);
+    stroke-width: 3px;
+}
+
+input#mortgage-amount-input {
+    width: 100%;
+    height: 100%;
+    border: 1px solid hsl(216, 12%, 84%);
+    border-left: none;
+    padding: 0.625rem;
+    font-size: var(--small-font);
+    background-color: #f9fafb;
+    flex: 1;
+    min-width: 0;
+    border-radius: 0 0.375rem 0.375rem 0;
+}
+
+label.mortgage-term-title {
+    width: fit-content;
+    font-size: var(--small-font);
+    margin-block-end: 0.5rem;
+    color: var(--main-text-color);
+    margin-inline-start: var(--title-inline);
+}
+
+div.mortgage-term-container {
+    display: flex;
+    height: 2.4rem;
+    align-items: center;
+    width: 100%;
+}
+
+span.term-icon-container {
+    height: 100%;
+    display: inline-flex;
+    padding: 0.75rem;
+    align-items: center;
+    font-size: var(--small-font);
+    font-weight: 600;
+    border: 1px solid hsl(216, 12%, 84%);
+    border-left: none;
+    border-radius: 0 0.375rem 0.375rem 0;
+}
+
+input#mortgage-term-input {
+    width: 100%;
+    height: 100%;
+    border: 1px solid hsl(216, 12%, 84%);
+    border-right: none;
+    padding: 0.625rem;
+    font-size: var(--small-font);
+    background-color: #f9fafb;
+    flex: 1;
+    min-width: 0;
+    border-radius: 0.375rem 0 0 0.375rem;
+}
+
+span.rate-icon-container {
+    height: 100%;
+    display: inline-flex;
+    padding: 0.75rem;
+    align-items: center;
+    font-size: 0.875rem;
+    border: 1px solid hsl(216, 12%, 84%);
+    border-left: none;
+    border-radius: 0 0.375rem 0.375rem 0;
+}
+svg.rate-icon {
+    width: var(--small-font);
+    stroke-width: 3px;
+}
+
+div.mortgage-term-rate {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+@media (max-width: 600px) {
+    div.mortgage-term-rate {
+        flex-direction: column;
+    }
+}
+
+label.mortgage-rate-title {
+    width: fit-content;
+    font-size: var(--small-font);
+    margin-block-end: 0.5rem;
+    color: var(--main-text-color);
+    margin-inline-start: var(--title-inline);
+}
+
+input#mortgage-rate-input {
+    width: 100%;
+    height: 100%;
+    border: 1px solid hsl(216, 12%, 84%);
+    border-right: none;
+    padding: 0.625rem;
+    font-size: var(--small-font);
+    background-color: #f9fafb;
+    flex: 1;
+    min-width: 0;
+    border-radius: 0.375rem 0 0 0.375rem;
+}
+
+div.mortgage-term,
+div.mortgage-rate {
+    width: 48%;
+}
+
+@media (max-width: 600px) {
+    div.mortgage-term,
+    div.mortgage-rate {
+        width: 100%;
+    }
+}
+
+div.mortgage-rate-container {
+    display: flex;
+    height: 2.4rem;
+    align-items: center;
+    width: 100%;
+}
+
+input#mortgage-rate-input {
+    width: 100%;
+}
+
+fieldset.mortgage-type {
+    all: unset;
+    width: 100%;
+    margin-block-start: 1rem;
+}
+
+fieldset.mortgage-type > legend {
+    width: fit-content;
+    font-size: var(--small-font);
+    margin-block-end: 0.6rem;
+    color: var(--main-text-color);
+    margin-inline-start: var(--title-inline);
+}
+
+input[type="radio"] {
+    margin-inline: 0.5rem 0.8rem;
+}
+
+label.repayment-label,
+label.interest-only-label {
+    width: 100%;
+    display: flex;
+    font-weight: 600;
+    border: 2px solid hsl(216, 12%, 74%);
+    padding: 0.5rem 0 0.5rem 0.5rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+}
+
+label.repayment-label {
+    margin-block-end: 0.5rem;
+}
+
+button.form-submit {
+    width: 14rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-block-start: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 100vh;
+    background-color: var(--main-green);
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    button.form-submit {
+        margin-inline: auto;
+    }
+}
+
+p.submit-text {
+    font-size: var(--small-font);
+    font-weight: 600;
+}
+
+img {
+    scale: 0.8;
+    object-fit: cover;
+}
+
+h2.result-empty-header {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-block: -0.8rem 0.8rem;
+}
+
+p.result-empty-guide {
+    text-align: center;
+    font-size: var(--small-font);
+    color: var(--accent-text-color);
+}
+
+div.result-empty {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+div.result-complete {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+h2.result-complete-header {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+p.result-complete-explanation {
+    margin-block: 1rem 1.3rem;
+    font-size: var(--small-font);
+    color: var(--accent-text-color);
+}
+
+div.result-complete-card {
+    height: 17rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.775rem;
+    border-top: 2.5px solid var(--main-green);
+    background-color: var(--result-card-bg);
+    padding: 1.5rem;
+    overflow: hidden;
+}
+
+p.accent-text {
+    font-size: var(--small-font);
+    color: var(--accent-text-color);
+}
+
+p.result-monthly-figure {
+    font-size: 3.4rem;
+    font-weight: 700;
+    color: var(--main-green);
+    margin-block-start: 0.5rem;
+}
+
+hr {
+    width: 95%;
+    border: 0;
+    height: 0.4px;
+    align-self: center;
+    background-color: var(--hr-sep-color);
+    margin-block: 1.5rem;
+}
+
+p.result-total-figure {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-block: 0.5rem 0;
+}
